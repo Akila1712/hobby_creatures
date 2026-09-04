@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hobby Creatures CRM — New Enquiry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/design-tokens.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- Sidebar is fetched from sidebar.html and injected here -->
+  <div id="sidebar-mount"></div>
+
+  <!-- Backdrop shown behind the sidebar on mobile when it's open -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="main">
+
+    <!-- Topbar is fetched from topbar.html and injected here -->
+    <div id="topbar-mount"></div>
+
+    <!-- Workspace -->
+    <main class="workspace">
+
+      <div class="form-page-header">
+        <div class="form-page-header-left">
+          <button class="form-back-btn" aria-label="Back" onclick="history.back()">
+            <i class="bi bi-arrow-left"></i>
+          </button>
+          <div class="form-page-title">
+            <h1>New Enquiry</h1>
+            <p>Capture WhatsApp order and create a new enquiry</p>
+          </div>
+        </div>
+        <a href="enquiries.html" class="btn-outline-app">
+          <i class="bi bi-arrow-right"></i> Back to Enquiries
+        </a>
+      </div>
+
+      <form id="enquiryForm">
+        <div class="form-layout">
+
+          <!-- Left column: form fields -->
+          <div class="form-card">
+
+            <div class="form-section">
+              <h3 class="form-section-title"><i class="bi bi-send"></i> Enquiry Details</h3>
+              <div class="form-row cols-3">
+                <div class="form-field">
+                  <label>Enquiry ID (Auto)</label>
+                  <div class="form-input-suffix">
+                    <input type="text" class="form-input" value="ENQ-2025-00026" readonly>
+                    <span class="suffix" style="border-left:0;background:transparent;cursor:pointer" title="Copy">
+                      <i class="bi bi-clipboard"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Enquiry Date</label>
+                  <div class="form-input-icon right">
+                    <input type="date" class="form-input" value="24 May 2025">
+                    <i class="bi bi-calendar3"></i>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Source</label>
+                  <div class="form-input-icon">
+                    <i class="bi bi-whatsapp" style="color:#25D366"></i>
+                    <select class="form-select" style="padding-left:38px">
+                      <option>WhatsApp</option>
+                      <option>Phone Call</option>
+                      <option>Walk-in</option>
+                      <option>Instagram</option>
+                      <option>Others</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title"><i class="bi bi-person"></i> Customer / Supplier Information</h3>
+              <div class="form-row cols-3">
+                <div class="form-field">
+                  <label>Customer / Supplier Name <span class="req">*</span></label>
+                  <input type="text" class="form-input" placeholder="Enter name" required>
+                </div>
+                <div class="form-field">
+                  <label>Contact Number <span class="req">*</span></label>
+                  <div class="phone-input">
+                    <span class="phone-country">🇮🇳 +91 <i class="bi bi-chevron-down" style="font-size:9px"></i></span>
+                    <input type="tel" class="form-input" placeholder="Enter mobile number" required>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Email (Optional)</label>
+                  <input type="email" class="form-input" placeholder="Enter email address">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title"><i class="bi bi-box-seam"></i> Product Information</h3>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Product Description <span class="req">*</span></label>
+                  <textarea class="form-textarea" placeholder="Enter product description" required></textarea>
+                </div>
+              </div>
+
+              <div class="form-row cols-4">
+                <div class="form-field">
+                  <label>Measurement</label>
+                  <input type="text" class="form-input" placeholder="e.g. 30 cm">
+                </div>
+                <div class="form-field">
+                  <label>Weight</label>
+                  <input type="text" class="form-input" placeholder="e.g. 50 grams">
+                </div>
+                <div class="form-field">
+                  <label>Quantity <span class="req">*</span></label>
+                  <div class="form-input-suffix">
+                    <input type="text" class="form-input" placeholder="e.g. 200" required>
+                    <span class="suffix">pcs</span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Required Deadline <span class="req">*</span></label>
+                  <div class="form-input-icon right">
+                    <input type="text" class="form-input" placeholder="Select date" required>
+                    <i class="bi bi-calendar3"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row cols-3">
+                <div class="form-field">
+                  <label>Material Requirement</label>
+                  <select class="form-select">
+                    <option value="" disabled selected>Select material</option>
+                    <option>PLA</option>
+                    <option>ABS</option>
+                    <option>Resin</option>
+                    <option>PETG</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Finishing Requirement</label>
+                  <select class="form-select">
+                    <option value="" disabled selected>Select finishing type</option>
+                    <option>Matte paint</option>
+                    <option>Glossy paint</option>
+                    <option>Sanded &amp; primed</option>
+                    <option>Raw / unfinished</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label>Finishing Details (If any)</label>
+                  <input type="text" class="form-input" placeholder="e.g. Color, texture, notes">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Additional Instructions / Notes</label>
+                  <textarea class="form-textarea" id="notesField" maxlength="500" placeholder="Enter any additional instructions, text, notes..." oninput="document.getElementById('charCount').textContent = this.value.length"></textarea>
+                  <div class="char-count"><span id="charCount">0</span> / 500</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right column: reference image upload -->
+          <div class="side-card">
+            <h3 class="side-card-title"><i class="bi bi-image"></i> Reference Image (Optional)</h3>
+            <label class="upload-card" style="display:block;cursor:pointer">
+              <input type="file" accept=".jpg,.jpeg,.png,.webp" style="display:none">
+              <div class="upload-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+              <p class="upload-title">Drag &amp; drop image here</p>
+              <p class="upload-or">or</p>
+              <span class="btn-browse">Browse Files</span>
+              <p class="upload-meta">Supported formats: JPG, PNG, WEBP<br>Max size: 10 MB</p>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="form-footer">
+          <button type="reset" class="btn-outline-app danger">
+            <i class="bi bi-arrow-counterclockwise"></i> Reset
+          </button>
+          <div class="form-footer-right">
+            <button type="button" class="btn-outline-app brand">Save as Draft</button>
+            <button type="submit" class="btn-primary-app"><i class="bi bi-check2"></i> Create Enquiry</button>
+          </div>
+        </div>
+      </form>
+
+    </main>
+  </div>
+</div>
+
+<script>
+// Fetch sidebar.html and topbar.html and inject them into the shell.
+const currentPage = 'enquiries';
+
+// sidebar.html and topbar.html are standalone documents (so they can also be
+// previewed on their own). Extract just the <body> content before injecting.
+function extractBody(html) {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.innerHTML;
+}
+
+fetch('sidebar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('sidebar-mount').outerHTML = extractBody(html);
+    document.querySelectorAll('.nav-item[data-page]').forEach(item => {
+      item.classList.toggle('active', item.dataset.page === currentPage);
+    });
+  })
+  .catch(err => console.error('Failed to load sidebar:', err));
+
+fetch('topbar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('topbar-mount').outerHTML = extractBody(html);
+  })
+  .catch(err => console.error('Failed to load topbar:', err));
+
+// Mobile sidebar toggle — delegated on document so it works regardless of
+// whether sidebar.html / topbar.html have finished loading yet.
+document.addEventListener('click', (e) => {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  if (e.target.closest('#menuToggle')) {
+    sidebar?.classList.toggle('open');
+    overlay?.classList.toggle('active');
+  } else if (e.target.closest('#sidebarOverlay')) {
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('active');
+  }
+});
+
+document.getElementById('enquiryForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Enquiry captured (demo only — wire this up to your backend).');
+});
+</script>
+
+</body>
+</html>
