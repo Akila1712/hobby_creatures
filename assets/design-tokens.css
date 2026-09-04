@@ -1,0 +1,239 @@
+/* ==========================================================================
+   HOBBY CREATURES CRM — DESIGN TOKENS
+   ========================================================================== */
+
+:root{
+
+  /* ---------- 1. BASE PALETTE ---------- */
+  --orange:#f15a0a;
+  --orange-dark:#d84b00;
+  --orange-soft:#fff0e7;
+  --navy:#071b36;
+  --navy-2:#0d294a;
+  --ink:#132238;
+  --slate:#69768a;
+  --surface:#f4f6f9;
+  --border:#e1e6ed;
+  --green:#16934f;
+  --green-soft:#e8f7ed;
+  --amber:#d78b00;
+  --amber-soft:#fff4d9;
+  --red:#dd3f3f;
+  --red-soft:#fdeaea;
+  --blue:#2567c9;
+  --blue-soft:#eaf1fc;
+  --purple:#7656d6;
+  --white:#ffffff;
+
+  /* ---------- 2. PRIMITIVES ---------- */
+  --radius-sm:10px;
+  --radius-md:12px;
+  --radius-lg:14px;
+  --radius-full:999px;
+
+  --shadow-card:0 6px 18px rgba(15,35,60,.03);
+  --shadow-card-strong:0 6px 18px rgba(15,35,60,.025);
+  --shadow-btn-primary:0 9px 20px rgba(241,90,10,.2);
+  --shadow-brand-mark:0 10px 25px rgba(241,90,10,.3);
+  --shadow-nav-active:0 8px 18px rgba(241,90,10,.22);
+  --shadow-focus-ring:0 0 0 3px rgba(241,90,10,.08);
+  --outline-focus:3px solid rgba(241,90,10,.2);
+
+  --font-family:Manrope,system-ui,sans-serif;
+  --fw-medium:500;
+  --fw-semibold:600;
+  --fw-bold:700;
+  --fw-heavy:800;
+
+  --transition-base:.18s ease;
+  --transition-sidebar:left .2s;
+
+  /* ---------- 3. BUTTON ---------- */
+  --btn-height:46px;
+  --btn-height-lg:52px;
+  --btn-padding-x:18px;
+  --btn-radius:var(--radius-md);
+  --btn-gap:9px;
+  --btn-font-size:13px;
+  --btn-font-weight:var(--fw-bold);
+
+  --btn-primary-bg:var(--orange);
+  --btn-primary-bg-hover:var(--orange-dark);
+  --btn-primary-color:var(--white);
+  --btn-primary-shadow:var(--shadow-btn-primary);
+  --btn-primary-hover-lift:-1px;
+
+  --btn-secondary-bg:var(--white);
+  --btn-secondary-border:#d9e0e8;
+  --btn-secondary-color:var(--ink);
+
+  --btn-ghost-color:var(--orange);
+  --btn-ghost-font-size:11px;
+
+  /* ---------- 4. INPUT / FORM FIELD ---------- */
+  --input-height:52px;
+  --input-radius:var(--radius-md);
+  --input-border:#d7dee8;
+  --input-padding-x:14px;
+  --input-gap:11px;
+  --input-icon-color:#95a0af;
+  --input-text-color:var(--ink);
+  --input-focus-border:var(--orange);
+  --input-focus-ring:var(--shadow-focus-ring);
+
+  --checkbox-accent:var(--orange);
+  --checkbox-size:17px;
+
+  --search-height:42px;
+  --search-bg:#f6f8fa;
+  --search-border:#edf0f4;
+  --search-radius:11px;
+  --search-color:#8c98a8;
+
+  /* ---------- 5. CARD ---------- */
+  --card-bg:var(--white);
+  --card-border:var(--border);
+  --card-radius:var(--radius-lg);
+  --card-shadow:var(--shadow-card-strong);
+  --card-heading-padding:17px 20px;
+  --card-heading-title-size:16px;
+  --card-heading-subtitle-size:11px;
+
+  --stat-card-padding:19px;
+  --stat-card-gap:15px;
+  --stat-icon-size:52px;
+  --stat-value-size:28px;
+  --stat-label-size:13px;
+  --stat-meta-size:10px;
+
+  /* ---------- 6. BADGE / STATUS ---------- */
+  --badge-radius:var(--radius-full);
+  --badge-padding:5px 9px;
+  --badge-font-size:9px;
+  --badge-font-weight:var(--fw-heavy);
+
+  --badge-red-color:var(--red);
+  --badge-red-bg:var(--red-soft);
+  --badge-amber-color:#966000;
+  --badge-amber-bg:var(--amber-soft);
+  --badge-green-color:var(--green);
+  --badge-green-bg:var(--green-soft);
+
+  --dot-size:7px;
+  --dot-gap:7px;
+
+  --nav-counter-bg:var(--white);
+  --nav-counter-color:var(--orange);
+  --nav-counter-radius:20px;
+  --nav-counter-padding:2px 6px;
+  --nav-counter-font-size:10px;
+
+  /* ---------- 7. ICON CHIP ---------- */
+  --icon-chip-size-lg:52px;
+  --icon-chip-size-sm:38px;
+  --icon-chip-radius-circle:var(--radius-full);
+  --icon-chip-radius-square:var(--radius-sm);
+
+  --icon-orange-color:var(--orange);
+  --icon-orange-bg:var(--orange-soft);
+  --icon-blue-color:var(--blue);
+  --icon-blue-bg:var(--blue-soft);
+  --icon-amber-color:var(--amber);
+  --icon-amber-bg:var(--amber-soft);
+  --icon-green-color:var(--green);
+  --icon-green-bg:var(--green-soft);
+  --icon-red-color:var(--red);
+  --icon-red-bg:var(--red-soft);
+
+  /* ---------- 8. AVATAR ---------- */
+  --avatar-size:36px;
+  --avatar-radius:var(--radius-full);
+  --avatar-bg:#e8edf4;
+  --avatar-color:#5d6a7c;
+  --avatar-font-size:12px;
+
+  /* ---------- 9. SIDEBAR / NAV ---------- */
+  --sidebar-width:250px;
+  --sidebar-bg:linear-gradient(180deg,#06172f,#08213e);
+  --sidebar-color:#fff;
+  --sidebar-brand-height:88px;
+  --sidebar-border:rgba(255,255,255,.06);
+
+  --nav-item-height:45px;
+  --nav-item-radius:var(--radius-sm);
+  --nav-item-padding-x:13px;
+  --nav-item-gap:12px;
+  --nav-item-font-size:14px;
+  --nav-item-color:#bac5d4;
+  --nav-item-color-hover:#fff;
+  --nav-item-bg-hover:rgba(255,255,255,.06);
+  --nav-item-active-bg:linear-gradient(90deg,var(--orange),#f47721);
+  --nav-item-active-color:#fff;
+  --nav-item-active-shadow:var(--shadow-nav-active);
+
+  --sidebar-mobile-offset:-270px;
+
+  --user-card-bg:rgba(255,255,255,.06);
+  --user-card-radius:var(--radius-md);
+  --user-card-padding:10px;
+  --user-card-name-size:11px;
+  --user-card-role-size:9px;
+  --user-card-role-color:#8fa0b5;
+
+  /* ---------- 10. TOPBAR ---------- */
+  --topbar-height:72px;
+  --topbar-bg:var(--white);
+  --topbar-border:var(--border);
+  --topbar-padding-x:28px;
+
+  --top-icon-size:41px;
+  --top-icon-radius:var(--radius-sm);
+  --top-icon-bg:#f5f7f9;
+  --top-icon-color:#687588;
+  --notification-dot-size:7px;
+  --notification-dot-color:var(--orange);
+
+  /* ---------- 11. TABLE ---------- */
+  --table-header-bg:#fafbfc;
+  --table-header-color:#8995a5;
+  --table-header-font-size:9px;
+  --table-header-letter-spacing:.08em;
+  --table-header-padding:13px 16px;
+  --table-cell-padding:15px 16px;
+  --table-row-border:#edf0f4;
+  --table-cell-font-size:11px;
+  --table-cell-meta-color:#8b97a7;
+  --row-menu-color:#8e99a8;
+
+  /* ---------- 12. ACTION LIST ---------- */
+  --action-item-padding-y:13px;
+  --action-item-border:#edf0f4;
+  --action-item-title-size:11px;
+  --action-item-meta-size:9px;
+  --action-item-meta-color:#8b97a7;
+  --action-chevron-color:#9aa5b2;
+
+  /* ---------- 13. LOGIN VIEW ---------- */
+  --login-panel-split:1.04fr .96fr;
+  --login-brand-gradient:linear-gradient(150deg,#06172f 0%,#0a2241 72%,#102f55 100%);
+  --login-brand-padding:46px clamp(35px,6vw,92px);
+  --login-heading-size:clamp(48px,5.5vw,76px);
+  --login-body-color:#b8c5d7;
+  --login-help-color:#909bab;
+  --managed-color:#8394a9;
+
+  /* ---------- 14. LAYOUT ---------- */
+  --workspace-padding:28px;
+  --workspace-max-width:1580px;
+  --page-heading-title-size:28px;
+  --page-heading-subtitle-color:var(--slate);
+  --dashboard-grid-columns:minmax(0,1fr) 330px;
+  --dashboard-grid-gap:16px;
+  --stats-grid-columns:repeat(4,1fr);
+  --stats-grid-gap:15px;
+
+  /* ---------- 15. BREAKPOINTS (reference only) ---------- */
+  --bp-tablet:1120px;
+  --bp-mobile:820px;
+  --bp-small:520px;
+}
