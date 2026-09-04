@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hobby Creatures CRM — Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/design-tokens.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- Sidebar is fetched from sidebar.html and injected here -->
+  <div id="sidebar-mount"></div>
+
+  <!-- Backdrop shown behind the sidebar on mobile when it's open -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="main">
+
+    <!-- Topbar is fetched from topbar.html and injected here -->
+    <div id="topbar-mount"></div>
+
+    <!-- Workspace -->
+    <main class="workspace">
+
+      <div class="page-heading">
+        <div>
+          <span class="page-eyebrow">Wednesday, 02 September</span>
+          <h1>Good evening, Senthil</h1>
+          <p>Here is what needs your attention today.</p>
+        </div>
+        <button class="btn-primary-app"><i class="bi bi-plus-lg"></i> New enquiry</button>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon orange"><i class="bi bi-chat-square-dots"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">New enquiries</span>
+            <strong class="stat-value">12</strong>
+            <span class="stat-meta up"><i class="bi bi-arrow-up"></i> 3 today</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="bi bi-clipboard2-check"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Active orders</span>
+            <strong class="stat-value">28</strong>
+            <span class="stat-meta">6 due this week</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="bi bi-printer"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">In production</span>
+            <strong class="stat-value">09</strong>
+            <span class="stat-meta">4 printers active</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="bi bi-truck"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Ready to dispatch</span>
+            <strong class="stat-value">05</strong>
+            <span class="stat-meta">Pack before 4 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard grid -->
+      <div class="dashboard-grid">
+
+        <!-- Priority orders card -->
+        <div class="card">
+          <div class="card-heading">
+            <div>
+              <h3 class="card-heading-title">Priority orders</h3>
+              <p class="card-heading-subtitle">Orders needing action in the next 48 hours</p>
+            </div>
+            <a href="orders.html" class="card-heading-action">View all orders <i class="bi bi-chevron-right"></i></a>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer / Item</th>
+                <th>Current Stage</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ORD-2026-0148</strong></td>
+                <td>Arun Studios<small>Architectural model</small></td>
+                <td><span class="stage"><span class="stage-dot amber"></span>Printing</span></td>
+                <td>03 Sep 2026</td>
+                <td><span class="status red">Overdue</span></td>
+                <td><i class="bi bi-three-dots-vertical row-menu"></i></td>
+              </tr>
+              <tr>
+                <td><strong>ORD-2026-0147</strong></td>
+                <td>Kaviya Events<small>Custom name boards</small></td>
+                <td><span class="stage"><span class="stage-dot blue"></span>Design approval</span></td>
+                <td>03 Sep 2026</td>
+                <td><span class="status amber">Waiting</span></td>
+                <td><i class="bi bi-three-dots-vertical row-menu"></i></td>
+              </tr>
+              <tr>
+                <td><strong>ORD-2026-0145</strong></td>
+                <td>Tiny Tales<small>Character figurines</small></td>
+                <td><span class="stage"><span class="stage-dot purple"></span>Quality check</span></td>
+                <td>04 Sep 2026</td>
+                <td><span class="status green">On track</span></td>
+                <td><i class="bi bi-three-dots-vertical row-menu"></i></td>
+              </tr>
+              <tr>
+                <td><strong>ORD-2026-0142</strong></td>
+                <td>Pixel Craft<small>Prototype enclosure</small></td>
+                <td><span class="stage"><span class="stage-dot orange"></span>Post-processing</span></td>
+                <td>02 Sep 2026</td>
+                <td><span class="status red">Overdue</span></td>
+                <td><i class="bi bi-three-dots-vertical row-menu"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Today's actions card -->
+        <div class="card">
+          <div class="card-heading">
+            <div>
+              <h3 class="card-heading-title">Today's actions</h3>
+              <p class="card-heading-subtitle">5 tasks need attention</p>
+            </div>
+          </div>
+          <div class="action-list">
+            <div class="action-item">
+              <span class="action-icon red"><i class="bi bi-clock-history"></i></span>
+              <span class="action-text"><strong>2 overdue orders</strong><small>Review deadlines and reassign</small></span>
+              <i class="bi bi-chevron-right action-chevron"></i>
+            </div>
+            <div class="action-item">
+              <span class="action-icon amber"><i class="bi bi-palette2"></i></span>
+              <span class="action-text"><strong>3 approvals pending</strong><small>Waiting for customer response</small></span>
+              <i class="bi bi-chevron-right action-chevron"></i>
+            </div>
+            <div class="action-item">
+              <span class="action-icon green"><i class="bi bi-truck"></i></span>
+              <span class="action-text"><strong>5 ready to dispatch</strong><small>Complete packing before 4 PM</small></span>
+              <i class="bi bi-chevron-right action-chevron"></i>
+            </div>
+            <div class="action-item">
+              <span class="action-icon blue"><i class="bi bi-currency-rupee"></i></span>
+              <span class="action-text"><strong>₹32,500 pending</strong><small>Across 4 active invoices</small></span>
+              <i class="bi bi-chevron-right action-chevron"></i>
+            </div>
+          </div>
+          <button class="task-board-btn">Open task board</button>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+// Fetch sidebar.html and topbar.html and inject them into the shell.
+const currentPage = 'overview';
+
+// sidebar.html and topbar.html are standalone documents (so they can also be
+// previewed on their own). Extract just the <body> content before injecting.
+function extractBody(html) {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.innerHTML;
+}
+
+fetch('sidebar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('sidebar-mount').outerHTML = extractBody(html);
+    document.querySelectorAll('.nav-item[data-page]').forEach(item => {
+      item.classList.toggle('active', item.dataset.page === currentPage);
+    });
+  })
+  .catch(err => console.error('Failed to load sidebar:', err));
+
+fetch('topbar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('topbar-mount').outerHTML = extractBody(html);
+  })
+  .catch(err => console.error('Failed to load topbar:', err));
+
+// Mobile sidebar toggle — delegated on document so it works regardless of
+// whether sidebar.html / topbar.html have finished loading yet.
+document.addEventListener('click', (e) => {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  if (e.target.closest('#menuToggle')) {
+    sidebar?.classList.toggle('open');
+    overlay?.classList.toggle('active');
+  } else if (e.target.closest('#sidebarOverlay')) {
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('active');
+  }
+});
+</script>
+
+</body>
+</html>
