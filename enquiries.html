@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hobby Creatures CRM — Enquiries</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- DataTables (Bootstrap 5 styling variant) -->
+<link href="https://cdn.datatables.net/1.13.11/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+<!-- Flatpickr (date range picker) -->
+<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/design-tokens.css">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- Sidebar is fetched from sidebar.html and injected here -->
+  <div id="sidebar-mount"></div>
+
+  <!-- Backdrop shown behind the sidebar on mobile when it's open -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="main">
+
+    <!-- Topbar is fetched from topbar.html and injected here -->
+    <div id="topbar-mount"></div>
+
+    <!-- Workspace -->
+    <main class="workspace">
+
+      <div class="list-page-header">
+        <div>
+          <h1>Enquiries (WhatsApp)</h1>
+          <p>View and manage all enquiries received via WhatsApp</p>
+        </div>
+        <div class="list-header-actions">
+          <button class="btn-outline-app"><i class="bi bi-download"></i> Export</button>
+          <a href="new-enquiry.html" class="btn-primary-app"><i class="bi bi-plus-lg"></i> New Enquiry</a>
+        </div>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon orange"><i class="bi bi-inbox"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Total Enquiries</span>
+            <strong class="stat-value">124</strong>
+            <span class="stat-meta">All time</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="bi bi-clock-history"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Pending Enquiries</span>
+            <strong class="stat-value">34</strong>
+            <span class="stat-meta stat-meta-amber">Awaiting review</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="bi bi-check-circle"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Converted to Projects</span>
+            <strong class="stat-value">68</strong>
+            <span class="stat-meta stat-meta-green">This month</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red"><i class="bi bi-x-circle"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Rejected Enquiries</span>
+            <strong class="stat-value">22</strong>
+            <span class="stat-meta stat-meta-red">This month</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="filter-bar">
+        <div class="filter-field">
+          <label>Status</label>
+          <select class="filter-select" id="statusFilter">
+            <option value="">All Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Converted">Converted</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label>Source</label>
+          <select class="filter-select" id="sourceFilter">
+            <option value="">All Sources</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Phone Call">Phone Call</option>
+            <option value="Walk-in">Walk-in</option>
+          </select>
+        </div>
+        <div class="filter-field">
+          <label>Date Range</label>
+          <div class="filter-input-icon">
+            <input type="text" id="dateRangeFilter" class="filter-input" placeholder="Select date range" readonly>
+            <i class="bi bi-calendar3"></i>
+          </div>
+        </div>
+        <div class="filter-field">
+          <button class="btn-outline-app" id="resetFilters"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+        </div>
+      </div>
+
+      <!-- Enquiries table (DataTables-powered, desktop) + card list (mobile) -->
+      <div class="list-table-card">
+        <table id="enquiriesTable" class="list-table enquiries-table">
+          <thead>
+            <tr>
+              <th>Enquiry ID</th>
+              <th>Customer / Supplier</th>
+              <th>Product Description</th>
+              <th>Quantity</th>
+              <th data-order="deadline">Deadline</th>
+              <th>Source</th>
+              <th>Status</th>
+              <th data-order="created">Created On</th>
+              <th data-orderable="false">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-order="26"><strong>ENQ-2025-0026</strong></td>
+              <td>Siva Industries</td>
+              <td>Mechanical Part - Prototype</td>
+              <td>200 pcs</td>
+              <td data-order="2025-05-28">28 May 2025<span class="deadline-days"><i class="bi bi-clock"></i>(4 days left)</span></td>
+              <td><span class="source-cell"><i class="bi bi-whatsapp"></i>WhatsApp</span></td>
+              <td><span class="status amber">Pending</span></td>
+              <td data-order="2025-05-24 10:30" class="created-on">24 May 2025<small>10:30 AM</small></td>
+              <td><button class="action-view-btn"><i class="bi bi-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td data-order="25"><strong>ENQ-2025-0025</strong></td>
+              <td>GreenTech Solutions</td>
+              <td>Decorative Model</td>
+              <td>150 pcs</td>
+              <td data-order="2025-05-30">30 May 2025<span class="deadline-days"><i class="bi bi-clock"></i>(6 days left)</span></td>
+              <td><span class="source-cell"><i class="bi bi-whatsapp"></i>WhatsApp</span></td>
+              <td><span class="status amber">Pending</span></td>
+              <td data-order="2025-05-23 16:15" class="created-on">23 May 2025<small>04:15 PM</small></td>
+              <td><button class="action-view-btn"><i class="bi bi-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td data-order="24"><strong>ENQ-2025-0024</strong></td>
+              <td>BuildRight Engineers</td>
+              <td>Industrial Component</td>
+              <td>100 pcs</td>
+              <td data-order="2025-05-27">27 May 2025<span class="deadline-days"><i class="bi bi-clock"></i>(3 days left)</span></td>
+              <td><span class="source-cell"><i class="bi bi-whatsapp"></i>WhatsApp</span></td>
+              <td><span class="status green">Converted</span></td>
+              <td data-order="2025-05-23 11:20" class="created-on">23 May 2025<small>11:20 AM</small></td>
+              <td><button class="action-view-btn"><i class="bi bi-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td data-order="23"><strong>ENQ-2025-0023</strong></td>
+              <td>Creative Studio</td>
+              <td>Custom Figurine</td>
+              <td>50 pcs</td>
+              <td data-order="2025-06-02">02 Jun 2025<span class="deadline-days"><i class="bi bi-clock"></i>(9 days left)</span></td>
+              <td><span class="source-cell"><i class="bi bi-whatsapp"></i>WhatsApp</span></td>
+              <td><span class="status amber">Pending</span></td>
+              <td data-order="2025-05-22 09:45" class="created-on">22 May 2025<small>09:45 AM</small></td>
+              <td><button class="action-view-btn"><i class="bi bi-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td data-order="22"><strong>ENQ-2025-0022</strong></td>
+              <td>Mech Solutions</td>
+              <td>Machine Part Housing</td>
+              <td>120 pcs</td>
+              <td data-order="2025-05-29">29 May 2025<span class="deadline-days"><i class="bi bi-clock"></i>(5 days left)</span></td>
+              <td><span class="source-cell"><i class="bi bi-whatsapp"></i>WhatsApp</span></td>
+              <td><span class="status green">Converted</span></td>
+              <td data-order="2025-05-22 15:10" class="created-on">22 May 2025<small>03:10 PM</small></td>
+              <td><button class="action-view-btn"><i class="bi bi-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td data-order="21"><strong>ENQ-2025-0021</strong></td>
+              <td>Design Hub</td>
+              <td>Architectural Model</td>
+              <td>1 pcs</td>
+              <td data-order="2025-06-05">05 Jun 2025<span class="deadline-days"><i class="bi bi-clock"></i>(12 days left)</span></td>
+              <td><span class="source-cell"><i class="bi bi-whatsapp"></i>WhatsApp</span></td>
+              <td><span class="status red">Rejected</span></td>
+              <td data-order="2025-05-21 14:25" class="created-on">21 May 2025<small>02:25 PM</small></td>
+              <td><button class="action-view-btn"><i class="bi bi-eye"></i></button></td>
+            </tr>
+            <tr>
+              <td data-order="20"><strong>ENQ-2025-0020</strong></td>
+              <td>AutoMates Pvt Ltd</td>
+              <td>Prototype - Assembly</td>
+              <td>80 pcs</td>
+              <td data-order="2025-05-31">31 May 2025<span class="deadline-days"><i class="bi bi-clock"></i>(7 days left)</span></td>
+              <td><span class="source-cell"><i class="bi bi-whatsapp"></i>WhatsApp</span></td>
+              <td><span class="status amber">Pending</span></td>
+              <td data-order="2025-05-21 10:05" class="created-on">21 May 2025<small>10:05 AM</small></td>
+              <td><button class="action-view-btn"><i class="bi bi-eye"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Mobile-only card list, populated by JS from the table's
+             currently visible rows (kept in sync on every DataTables draw) -->
+        <div class="enquiry-cards" id="enquiryCards"></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- jQuery + DataTables (core + Bootstrap5 styling adapter) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.11/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.11/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+const currentPage = 'enquiries';
+
+function extractBody(html) {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.innerHTML;
+}
+
+fetch('sidebar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('sidebar-mount').outerHTML = extractBody(html);
+    document.querySelectorAll('.nav-item[data-page]').forEach(item => {
+      item.classList.toggle('active', item.dataset.page === currentPage);
+    });
+  })
+  .catch(err => console.error('Failed to load sidebar:', err));
+
+fetch('topbar.html')
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById('topbar-mount').outerHTML = extractBody(html);
+  })
+  .catch(err => console.error('Failed to load topbar:', err));
+
+document.addEventListener('click', (e) => {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebarOverlay');
+  if (e.target.closest('#menuToggle')) {
+    sidebar?.classList.toggle('open');
+    overlay?.classList.toggle('active');
+  } else if (e.target.closest('#sidebarOverlay')) {
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('active');
+  }
+});
+
+/* ---------------- Date range filter (Created On column) ---------------- */
+let dateRange = { start: null, end: null };
+
+// Custom DataTables search plugin: filters rows by the "Created On"
+// column's data-order date (col index 7, format "YYYY-MM-DD HH:MM").
+$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+  if (!dateRange.start || !dateRange.end) return true;
+
+  const raw = settings.aoData[dataIndex].anCells
+    ? $(settings.aoData[dataIndex].anCells[7]).attr('data-order')
+    : null;
+  if (!raw) return true;
+
+  const rowDate = new Date(raw.split(' ')[0]);
+  return rowDate >= dateRange.start && rowDate <= dateRange.end;
+});
+
+const dateRangePicker = flatpickr('#dateRangeFilter', {
+  mode: 'range',
+  dateFormat: 'd M Y',
+  altInput: false,
+  onChange: function (selectedDates) {
+    if (selectedDates.length === 2) {
+      dateRange.start = selectedDates[0];
+      dateRange.end = selectedDates[1];
+      dateRange.end.setHours(23, 59, 59, 999); // include the full end day
+      $('#enquiriesTable').DataTable().draw();
+    }
+  }
+});
+
+/* ---------------- Mobile card list ----------------
+   Renders the same rows DataTables is currently showing (after search,
+   column filters, and date-range filter have been applied) as cards,
+   for the small-screen layout. Re-run on every "draw" so it always
+   mirrors what's on screen — including pagination. */
+function renderEnquiryCards(table) {
+  const $cards = $('#enquiryCards').empty();
+
+  // table.rows({ page: 'current' }) matches exactly what the desktop
+  // table is showing on the current page after all filters/search.
+  const rows = table.rows({ page: 'current' }).nodes();
+
+  if (rows.length === 0) {
+    $cards.append('<p class="enquiry-cards-empty">No matching enquiries found</p>');
+    return;
+  }
+
+  $(rows).each(function () {
+    const $row = $(this);
+    const cells = $row.find('td');
+
+    const id = $(cells[0]).text();
+    const customer = $(cells[1]).text();
+    const desc = $(cells[2]).text();
+    const qty = $(cells[3]).text();
+    const deadlineHtml = $(cells[4]).html();
+    const sourceHtml = $(cells[5]).html();
+    const statusHtml = $(cells[6]).html();
+
+    $cards.append(`
+      <div class="enquiry-card">
+        <div class="enquiry-card-top">
+          <div>
+            <div class="enquiry-card-id">${id}</div>
+            <div class="enquiry-card-customer">${customer}</div>
+          </div>
+          ${statusHtml}
+        </div>
+        <div class="enquiry-card-body">
+          <div class="enquiry-card-desc"><span class="label">Product</span>${desc}</div>
+          <div><span class="label">Quantity</span>${qty}</div>
+          <div><span class="label">Deadline</span>${deadlineHtml}</div>
+        </div>
+        <div class="enquiry-card-footer">
+          <div class="enquiry-card-source">${sourceHtml}</div>
+          <button class="action-view-btn"><i class="bi bi-eye"></i></button>
+        </div>
+      </div>
+    `);
+  });
+}
+
+/* ---------------- DataTables init ---------------- */
+$(function () {
+  const table = $('#enquiriesTable').DataTable({
+    // Sort by "Created On" (col index 7) descending by default, using data-order values
+    order: [[7, 'desc']],
+
+    // Reads data-order attributes automatically for sorting
+    columnDefs: [
+      { targets: 8, orderable: false } // Action column: no sorting
+    ],
+
+    pageLength: 10,
+    lengthMenu: [5, 10, 25, 50, 100],
+
+    // Custom DOM: we place length + search in a styled toolbar row,
+    // then the table, then info + pagination in a footer row.
+    dom:
+      '<"dt-toolbar"lf>' +
+      't' +
+      '<"dt-footer-row"ip>',
+
+    language: {
+      search: '',
+      searchPlaceholder: 'Search enquiries...',
+      lengthMenu: 'Show _MENU_',
+      info: 'Showing _START_ to _END_ of _TOTAL_ enquiries',
+      infoEmpty: 'Showing 0 enquiries',
+      infoFiltered: '(filtered from _MAX_ total)',
+      paginate: {
+        previous: '<i class="bi bi-chevron-left"></i>',
+        next: '<i class="bi bi-chevron-right"></i>'
+      },
+      zeroRecords: 'No matching enquiries found'
+    }
+  });
+
+  // Render mobile cards for the initial page, then keep them in sync
+  renderEnquiryCards(table);
+  table.on('draw', () => renderEnquiryCards(table));
+
+  // Status filter (column index 6) -> exact match
+  $('#statusFilter').on('change', function () {
+    const val = this.value;
+    table.column(6).search(val ? '^' + val + '$' : '', true, false).draw();
+  });
+
+  // Source filter (column index 5) -> exact match
+  $('#sourceFilter').on('change', function () {
+    const val = this.value;
+    table.column(5).search(val ? '^' + val + '$' : '', true, false).draw();
+  });
+
+  // Reset button clears both column filters, the global search, selects, and date range
+  $('#resetFilters').on('click', function () {
+    $('#statusFilter').val('');
+    $('#sourceFilter').val('');
+    dateRange = { start: null, end: null };
+    dateRangePicker.clear();
+    table.search('').columns().search('').draw();
+  });
+});
+</script>
+
+</body>
+</html>

@@ -57,28 +57,29 @@
                   <label>Enquiry ID (Auto)</label>
                   <div class="form-input-suffix">
                     <input type="text" class="form-input" value="ENQ-2025-00026" readonly>
-                    <span class="suffix" style="border-left:0;background:transparent;cursor:pointer" title="Copy">
+                    <span class="suffix suffix-action" title="Copy">
                       <i class="bi bi-clipboard"></i>
                     </span>
                   </div>
                 </div>
                 <div class="form-field">
                   <label>Enquiry Date</label>
-                  <div class="form-input-icon right">
-                    <input type="date" class="form-input" value="24 May 2025">
+                  <div class="form-input-icon">
                     <i class="bi bi-calendar3"></i>
+                    <input type="date" class="form-input" value="2025-05-24">
                   </div>
                 </div>
                 <div class="form-field">
                   <label>Source</label>
                   <div class="form-input-icon">
-                    <i class="bi bi-whatsapp" style="color:#25D366"></i>
-                    <select class="form-select" style="padding-left:38px">
+    <i class="bi bi-broadcast"></i>
+
+                    <select class="form-select">
                       <option>WhatsApp</option>
                       <option>Phone Call</option>
                       <option>Walk-in</option>
+                      <option>Email</option>
                       <option>Instagram</option>
-                      <option>Others</option>
                     </select>
                   </div>
                 </div>
@@ -90,18 +91,60 @@
               <div class="form-row cols-3">
                 <div class="form-field">
                   <label>Customer / Supplier Name <span class="req">*</span></label>
-                  <input type="text" class="form-input" placeholder="Enter name" required>
+                  <div class="form-input-icon">
+                    <i class="bi bi-person"></i>
+                    <input type="text" class="form-input" placeholder="Enter name" required>
+                  </div>
                 </div>
                 <div class="form-field">
                   <label>Contact Number <span class="req">*</span></label>
-                  <div class="phone-input">
-                    <span class="phone-country">🇮🇳 +91 <i class="bi bi-chevron-down" style="font-size:9px"></i></span>
-                    <input type="tel" class="form-input" placeholder="Enter mobile number" required>
+  <div class="form-input-icon">
+    <i class="bi bi-telephone"></i>
+                  <input type="tel" class="form-input" placeholder="Enter mobile number" required>
                   </div>
                 </div>
                 <div class="form-field">
                   <label>Email (Optional)</label>
-                  <input type="email" class="form-input" placeholder="Enter email address">
+                  <div class="form-input-icon">
+                    <i class="bi bi-envelope"></i>
+                    <input type="email" class="form-input" placeholder="Enter email address">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title"><i class="bi bi-geo-alt"></i> Address Information</h3>
+              <div class="form-row">
+                <div class="form-field">
+                  <label>Street Address</label>
+                  <div class="form-input-icon">
+                    <i class="bi bi-geo-alt"></i>
+                    <input type="text" class="form-input" placeholder="Enter street address, building, area">
+                  </div>
+                </div>
+              </div>
+              <div class="form-row cols-3">
+                <div class="form-field">
+                  <label>City</label>
+                  <div class="form-input-icon">
+                    <i class="bi bi-building"></i>
+                    <input type="text" class="form-input" placeholder="Enter city">
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>State</label>
+                  <div class="form-input-icon">
+                    <i class="bi bi-map"></i>
+                    <input type="text" class="form-input" placeholder="Enter State">
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label>Pincode</label>
+                  <div class="form-input-icon">
+                    <i class="bi bi-mailbox"></i>
+                    <input type="text" class="form-input" placeholder="Enter pincode" inputmode="numeric" pattern="[0-9]{6}" maxlength="6">
+                  </div>
                 </div>
               </div>
             </div>
@@ -112,31 +155,39 @@
               <div class="form-row">
                 <div class="form-field">
                   <label>Product Description <span class="req">*</span></label>
-                  <textarea class="form-textarea" placeholder="Enter product description" required></textarea>
+                  <div class="form-input-icon top">
+                    <textarea class="form-textarea" placeholder="Enter product description" required></textarea>
+                  </div>
                 </div>
               </div>
 
               <div class="form-row cols-4">
                 <div class="form-field">
                   <label>Measurement</label>
-                  <input type="text" class="form-input" placeholder="e.g. 30 cm">
+                  <div class="form-input-icon">
+                    <i class="bi bi-rulers"></i>
+                    <input type="text" class="form-input" placeholder="e.g. 30 cm">
+                  </div>
                 </div>
                 <div class="form-field">
                   <label>Weight</label>
-                  <input type="text" class="form-input" placeholder="e.g. 50 grams">
+                  <div class="form-input-icon">
+                    <i class="bi bi-speedometer2"></i>
+                    <input type="text" class="form-input" placeholder="e.g. 50 grams">
+                  </div>
                 </div>
                 <div class="form-field">
                   <label>Quantity <span class="req">*</span></label>
                   <div class="form-input-suffix">
-                    <input type="text" class="form-input" placeholder="e.g. 200" required>
+                    <input type="number" class="form-input" placeholder="e.g. 200" min="1" required>
                     <span class="suffix">pcs</span>
                   </div>
                 </div>
                 <div class="form-field">
                   <label>Required Deadline <span class="req">*</span></label>
-                  <div class="form-input-icon right">
-                    <input type="text" class="form-input" placeholder="Select date" required>
+                  <div class="form-input-icon">
                     <i class="bi bi-calendar3"></i>
+                    <input type="date" class="form-input" required>
                   </div>
                 </div>
               </div>
@@ -144,34 +195,45 @@
               <div class="form-row cols-3">
                 <div class="form-field">
                   <label>Material Requirement</label>
-                  <select class="form-select">
-                    <option value="" disabled selected>Select material</option>
-                    <option>PLA</option>
-                    <option>ABS</option>
-                    <option>Resin</option>
-                    <option>PETG</option>
-                  </select>
+                  <div class="form-input-icon">
+                    <i class="bi bi-box-seam"></i>
+                    <select class="form-select">
+                      <option value="" disabled selected>Select material</option>
+                      <option>PLA</option>
+                      <option>ABS</option>
+                      <option>Resin</option>
+                      <option>PETG</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="form-field">
                   <label>Finishing Requirement</label>
-                  <select class="form-select">
-                    <option value="" disabled selected>Select finishing type</option>
-                    <option>Matte paint</option>
-                    <option>Glossy paint</option>
-                    <option>Sanded &amp; primed</option>
-                    <option>Raw / unfinished</option>
-                  </select>
+                  <div class="form-input-icon">
+                    <i class="bi bi-palette"></i>
+                    <select class="form-select">
+                      <option value="" disabled selected>Select finishing type</option>
+                      <option>Matte paint</option>
+                      <option>Glossy paint</option>
+                      <option>Sanded &amp; primed</option>
+                      <option>Raw / unfinished</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="form-field">
                   <label>Finishing Details (If any)</label>
-                  <input type="text" class="form-input" placeholder="e.g. Color, texture, notes">
+                  <div class="form-input-icon">
+                    <i class="bi bi-brush"></i>
+                    <input type="text" class="form-input" placeholder="e.g. Color, texture, notes">
+                  </div>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-field">
                   <label>Additional Instructions / Notes</label>
-                  <textarea class="form-textarea" id="notesField" maxlength="500" placeholder="Enter any additional instructions, text, notes..." oninput="document.getElementById('charCount').textContent = this.value.length"></textarea>
+                  <div class="form-input-icon top">
+                    <textarea class="form-textarea" id="notesField" maxlength="500" placeholder="Enter any additional instructions, text, notes..." oninput="document.getElementById('charCount').textContent = this.value.length"></textarea>
+                  </div>
                   <div class="char-count"><span id="charCount">0</span> / 500</div>
                 </div>
               </div>

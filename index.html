@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hobby Creatures CRM — Login</title>
+  <link rel="stylesheet" href="assets/design-tokens.css">
+  <link rel="stylesheet" href="assets/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+body{
+  background:
+    radial-gradient(circle at 15% 20%, #fff0e7 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, #eaf1fc 0%, transparent 45%),
+    #f4f6f9;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:32px 16px;
+}
+
+/* ============ CONTAINER ============ */
+.login-container{
+  width:100%;
+  max-width:800px;      /* within the requested 800-900px range */
+  display:grid;
+  grid-template-columns:44% 56%;
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 30px 70px rgba(7,27,54,.16), 0 4px 14px rgba(7,27,54,.06);
+}
+
+/* ============ LEFT PANEL — brand + 3D art ============ */
+.login-art{
+  position:relative;
+  background:linear-gradient(150deg,#06172f 0%,#0a2241 62%,#123262 100%);
+  padding:34px 30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+  min-height:560px;
+}
+.login-art:before{
+  content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.05);right:-190px;top:-210px;
+  box-shadow:0 0 0 60px rgba(255,255,255,.02),0 0 0 120px rgba(255,255,255,.012);
+}
+.login-art:after{
+  content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(241,90,10,.25),transparent 70%);
+  left:-110px;bottom:-120px;filter:blur(4px);
+}
+
+.brand{display:flex;align-items:center;gap:11px;position:relative;z-index:2}
+.brand-mark{
+  width:40px;height:40px;border-radius:12px;background:var(--orange);
+  color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;
+  letter-spacing:-1px;box-shadow:0 10px 22px rgba(241,90,10,.35);
+}
+.brand b{display:block;color:#fff;font-size:14px;font-weight:800}
+.brand small{display:block;color:#93a4bb;font-size:10.5px;margin-top:1px}
+
+.printer-3d{position:relative;z-index:2;display:flex;align-items:center;justify-content:center; width:200px;height:200px}
+.printer-3d img{max-width:180%;max-height:160%; padding-left: 100px}
+
+.art-caption{position:relative;z-index:2;text-align:center}
+.art-caption h3{color:#fff;font-size:16px;font-weight:800;margin:0 0 6px;letter-spacing:-.02em}
+.art-caption p{color:#9db0c8;font-size:12px;line-height:1.6;margin:0;max-width:230px;margin:0 auto}
+
+/* ============ RIGHT PANEL — form ============ */
+.login-form{
+  padding:46px 46px 38px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.form-eyebrow{font-size:11px;font-weight:800;letter-spacing:.12em;color:var(--orange);margin:0 0 10px}
+.login-form h1{font-size:26px;font-weight:800;letter-spacing:-.03em;color:var(--ink);margin:0 0 8px;line-height:1.15}
+.login-form>p.sub{font-size:13.5px;color:var(--slate);margin:0 0 30px;line-height:1.6}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:700;color:var(--ink);margin-bottom:7px}
+.input-shell{
+  border:1px solid #d7dee8;border-radius:var(--radius-md);
+  display:flex;align-items:center;min-height:50px;padding:0 14px;gap:10px;
+  transition:border-color .15s, box-shadow .15s;
+}
+.input-shell i{color:#95a0af;font-size:15px}
+.input-shell input{
+  border:0;outline:0;flex:1;min-width:0;font:inherit;font-size:13.5px;
+  color:var(--ink);background:transparent;
+}
+.input-shell input::placeholder{color:#a8b2bf}
+.input-shell:focus-within{border-color:var(--orange);box-shadow:0 0 0 3px rgba(241,90,10,.08)}
+
+
+.field-row{display:flex;align-items:center;justify-content:space-between;margin:2px 0 24px}
+.remember{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--slate)}
+.remember input{accent-color:var(--orange);width:15px;height:15px}
+
+
+.btn-login{
+  width:100%;border:0;border-radius:var(--radius-md);min-height:50px;
+  background:var(--orange);color:#fff;font-weight:700;font-size:14px;
+  display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;
+  box-shadow:0 12px 24px rgba(241,90,10,.25);
+  transition:background .15s, transform .15s;
+}
+.btn-login:hover{background:var(--orange-dark);transform:translateY(-1px)}
+
+.form-footer{text-align:center;margin-top:26px;font-size:12.5px;color:var(--slate)}
+.form-footer a{color:var(--orange);font-weight:700;text-decoration:none}
+.form-footer a:hover{text-decoration:underline}
+
+.managed-note{display:flex;align-items:center;gap:7px;justify-content:center;margin-top:18px;font-size:11px;color:#96a2b3}
+
+
+@media(max-width:720px){
+  .login-container{grid-template-columns:1fr;max-width:420px}
+  .login-art{min-height:280px;padding:26px}
+  .printer-3d{
+        width:100%;
+        justify-content:center;
+    }
+
+    .printer-3d img{
+        max-width:220px;
+        max-height:220px;
+        padding-left:0;
+        margin:0 auto;
+        display:block;
+    }
+  .art-caption{display:none}
+  .login-form{padding:34px 30px}
+}
+</style>
+</head>
+<body>
+
+<div class="login-container">
+
+  <!-- LEFT: brand + 3D illustration -->
+  <div class="login-art">
+    <div class="brand">
+      <span class="brand-mark">HC</span>
+      <span><b>Hobby Creatures</b><small>Order & Production CRM</small></span>
+    </div>
+
+    <div class="printer-3d">
+      <img src="assets/3D-printer.png" alt="3D Printer">
+
+    </div>
+
+    
+    <div class="art-caption">
+      <h3>Every print, tracked to completion.</h3>
+      <p>Watch each job move from filament spool to finished piece.</p>
+      
+    </div>
+  </div>
+
+  <!-- RIGHT: form -->
+  <div class="login-form">
+    <span class="form-eyebrow">HOBBY CREATURES CRM</span>
+    <h1>Welcome back</h1>
+    <p class="sub">Sign in to manage enquiries, production and orders.</p>
+
+    <div class="field">
+  <label for="username">Username or email</label>
+  <div class="input-shell">
+    <i class="bi bi-person"></i>
+    <input
+      id="username"
+      type="text"
+      value="hobbyadmin"
+      placeholder="you@hobbycreatures.com"
+      autocomplete="username"
+    >
+  </div>
+</div>
+
+<div class="field">
+  <label for="password">Password</label>
+  <div class="input-shell">
+    <i class="bi bi-lock"></i>
+    <input
+      id="password"
+      type="password"
+      value="admin123"
+      placeholder="Enter your password"
+      autocomplete="current-password"
+    >
+  </div>
+</div>
+
+<div class="field-row">
+  <label class="remember">
+    <input type="checkbox" checked>
+    Remember me
+  </label>
+</div>
+
+<button type="button" class="btn-login">
+  Log in <i class="bi bi-arrow-right"></i>
+</button>
+    <div class="managed-note"><i class="bi bi-shield-check"></i> Secured &amp; managed by your workspace admin</div>
+
+  </div>
+
+</div>
+<script>
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const loginButton = document.querySelector(".btn-login");
+
+  function login() {
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value;
+
+    // Demo login credentials
+    const demoUsername = "hobbyadmin";
+    const demoPassword = "admin123";
+
+    if (username === demoUsername && password === demoPassword) {
+      window.location.href = "dashboard.html";
+    } else {
+      alert("Invalid username or password");
+    }
+  }
+
+  // Login button
+  loginButton.addEventListener("click", login);
+
+  // Press Enter to login
+  [usernameInput, passwordInput].forEach(function (input) {
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        login();
+      }
+    });
+  });
+</script>
+</body>
+</html>
