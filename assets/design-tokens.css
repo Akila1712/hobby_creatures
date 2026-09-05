@@ -1,5 +1,7 @@
 /* ==========================================================================
    HOBBY CREATURES CRM — DESIGN TOKENS
+   Base palette + per-component variables, extracted from assets/styles.css
+   Drop this file in before styles.css and swap hardcoded values for var()
    ========================================================================== */
 
 :root{
@@ -26,11 +28,13 @@
   --white:#ffffff;
 
   /* ---------- 2. PRIMITIVES ---------- */
-  --radius-sm:10px;
-  --radius-md:12px;
-  --radius-lg:14px;
-  --radius-full:999px;
+  /* Radius scale */
+  --radius-sm:10px;      /* small icon chips, mini controls */
+  --radius-md:12px;      /* buttons, inputs, action icons */
+  --radius-lg:14px;      /* cards (was --radius) */
+  --radius-full:999px;   /* badges, avatars, dots */
 
+  /* Shadow scale */
   --shadow-card:0 6px 18px rgba(15,35,60,.03);
   --shadow-card-strong:0 6px 18px rgba(15,35,60,.025);
   --shadow-btn-primary:0 9px 20px rgba(241,90,10,.2);
@@ -39,18 +43,20 @@
   --shadow-focus-ring:0 0 0 3px rgba(241,90,10,.08);
   --outline-focus:3px solid rgba(241,90,10,.2);
 
+  /* Font */
   --font-family:Manrope,system-ui,sans-serif;
   --fw-medium:500;
   --fw-semibold:600;
   --fw-bold:700;
   --fw-heavy:800;
 
+  /* Motion */
   --transition-base:.18s ease;
   --transition-sidebar:left .2s;
 
   /* ---------- 3. BUTTON ---------- */
   --btn-height:46px;
-  --btn-height-lg:52px;
+  --btn-height-lg:52px;           /* login submit button */
   --btn-padding-x:18px;
   --btn-radius:var(--radius-md);
   --btn-gap:9px;
@@ -61,14 +67,14 @@
   --btn-primary-bg-hover:var(--orange-dark);
   --btn-primary-color:var(--white);
   --btn-primary-shadow:var(--shadow-btn-primary);
-  --btn-primary-hover-lift:-1px;
+  --btn-primary-hover-lift:-1px;   /* translateY on hover */
 
   --btn-secondary-bg:var(--white);
   --btn-secondary-border:#d9e0e8;
   --btn-secondary-color:var(--ink);
 
   --btn-ghost-color:var(--orange);
-  --btn-ghost-font-size:11px;
+  --btn-ghost-font-size:11px;      /* used as card-heading action link */
 
   /* ---------- 4. INPUT / FORM FIELD ---------- */
   --input-height:52px;
@@ -84,6 +90,7 @@
   --checkbox-accent:var(--orange);
   --checkbox-size:17px;
 
+  /* Topbar search variant */
   --search-height:42px;
   --search-bg:#f6f8fa;
   --search-border:#edf0f4;
@@ -99,6 +106,7 @@
   --card-heading-title-size:16px;
   --card-heading-subtitle-size:11px;
 
+  /* Stat card (dashboard) */
   --stat-card-padding:19px;
   --stat-card-gap:15px;
   --stat-icon-size:52px;
@@ -119,18 +127,20 @@
   --badge-green-color:var(--green);
   --badge-green-bg:var(--green-soft);
 
+  /* Stage dot (pipeline marker) */
   --dot-size:7px;
   --dot-gap:7px;
 
+  /* Nav pill counter ("12" badge on Enquiries) */
   --nav-counter-bg:var(--white);
   --nav-counter-color:var(--orange);
   --nav-counter-radius:20px;
-  --nav-counter-padding:2px 6px;
+  --nav-counter-padding:3px 7px;
   --nav-counter-font-size:10px;
 
-  /* ---------- 7. ICON CHIP ---------- */
-  --icon-chip-size-lg:52px;
-  --icon-chip-size-sm:38px;
+  /* ---------- 7. ICON CHIP (stat/action icons) ---------- */
+  --icon-chip-size-lg:52px;    /* stat-icon, circular */
+  --icon-chip-size-sm:38px;    /* action-icon, square */
   --icon-chip-radius-circle:var(--radius-full);
   --icon-chip-radius-square:var(--radius-sm);
 
@@ -171,8 +181,9 @@
   --nav-item-active-color:#fff;
   --nav-item-active-shadow:var(--shadow-nav-active);
 
-  --sidebar-mobile-offset:-270px;
+  --sidebar-mobile-offset:-270px;   /* off-canvas position */
 
+  /* User card (sidebar footer) */
   --user-card-bg:rgba(255,255,255,.06);
   --user-card-radius:var(--radius-md);
   --user-card-padding:10px;
@@ -232,8 +243,266 @@
   --stats-grid-columns:repeat(4,1fr);
   --stats-grid-gap:15px;
 
-  /* ---------- 15. BREAKPOINTS (reference only) ---------- */
+  /* ---------- 15. BREAKPOINTS (reference only — not usable as media queries) ---------- */
   --bp-tablet:1120px;
   --bp-mobile:820px;
   --bp-small:520px;
+
+  /* ==========================================================
+     ADDED FOR components.html — new variants/states not yet
+     represented above. Nothing in sections 1–15 was changed.
+     ========================================================== */
+
+  /* ---------- 16. BUTTON — additional variants, sizes & states ---------- */
+  --btn-height-sm:36px;
+  --btn-radius-sm:var(--radius-sm);
+  --btn-padding-x-sm:14px;
+  --btn-padding-x-lg:24px;
+  --btn-font-size-sm:12px;
+  --btn-font-size-lg:14px;
+
+  --btn-icon-size:42px;
+  --btn-icon-size-sm:34px;
+  --btn-icon-size-lg:50px;
+  --btn-icon-radius:var(--radius-md);
+  --btn-icon-radius-sm:var(--radius-sm);
+  --btn-icon-radius-lg:13px;
+
+  --btn-outline-color:var(--orange);
+  --btn-outline-border:var(--orange);
+  --btn-outline-hover-bg:var(--orange-soft);
+
+  --btn-danger-bg:var(--red);
+  --btn-danger-color:var(--white);
+  --btn-danger-bg-hover:#c22f2f;
+  --shadow-btn-danger:0 9px 20px rgba(221,63,63,.2);
+
+  --btn-danger-outline-color:var(--red);
+  --btn-danger-outline-border:var(--red);
+  --btn-danger-outline-hover-bg:var(--red-soft);
+
+  --btn-success-bg:var(--green);
+  --btn-success-color:var(--white);
+  --btn-success-bg-hover:#127a41;
+  --shadow-btn-success:0 9px 20px rgba(22,147,79,.2);
+
+  --btn-ghost-danger-color:var(--red);
+  --btn-ghost-danger-hover:#c22f2f;
+
+  --btn-disabled-opacity:.5;
+
+  --btn-loading-spinner-size:16px;
+  --btn-loading-spinner-border:2.2px;
+  --btn-loading-spinner-color:rgba(255,255,255,.45);
+  --btn-loading-spinner-color-light:rgba(241,90,10,.25);   /* spinner on secondary/outline buttons */
+
+  /* ---------- 17. FORM CONTROLS — validation, select, toggle, pill, chip, search ---------- */
+  --input-font-size:13.5px;
+  --input-error-border:var(--red);
+  --input-error-ring:rgba(221,63,63,.1);
+  --input-success-border:var(--green);
+
+  --field-hint-size:11.5px;
+  --field-hint-color:var(--slate);
+  --field-error-size:11.5px;
+  --field-error-color:var(--red);
+
+  --select-padding-right:38px;
+  --select-chevron-color:#95a0af;
+  --select-chevron-size:12px;
+
+  --check-row-font-size:13px;
+  --check-row-gap:9px;
+
+  --toggle-width:40px;
+  --toggle-height:22px;
+  --toggle-radius:20px;
+  --toggle-track-bg:#dfe3e8;
+  --toggle-thumb-size:16px;
+  --toggle-thumb-bg:var(--white);
+  --toggle-thumb-shadow:0 1px 3px rgba(0,0,0,.25);
+  --toggle-checked-bg:var(--orange);
+  --toggle-label-size:13px;
+  --toggle-label-weight:var(--fw-semibold);
+
+  --pill-padding:9px 16px;
+  --pill-radius:20px;
+  --pill-border:#d9e0e8;
+  --pill-font-size:12.5px;
+  --pill-color:var(--slate);
+  --pill-checked-border:var(--orange);
+  --pill-checked-color:var(--orange-dark);
+  --pill-checked-bg:var(--orange-soft);
+
+  --chip-bg:var(--orange-soft);
+  --chip-color:var(--orange-dark);
+  --chip-font-size:11.5px;
+  --chip-padding:6px 6px 6px 11px;
+  --chip-radius:20px;
+
+  --search-field-height:44px;
+  --search-field-border:#d7dee8;
+  --search-field-radius:var(--radius-md);
+  --search-field-icon-color:#95a0af;
+  --search-field-clear-color:#a8b2bf;
+
+  /* ---------- 18. BADGE / STATUS — remaining colors + outline + dot label ---------- */
+  --purple-soft:#f1ecfc;
+  --grey-soft:#eef1f4;
+
+  --badge-blue-color:var(--blue);
+  --badge-blue-bg:var(--blue-soft);
+  --badge-purple-color:var(--purple);
+  --badge-purple-bg:var(--purple-soft);
+  --badge-grey-color:var(--slate);
+  --badge-grey-bg:var(--grey-soft);
+
+  --status-outline-border-width:1.4px;
+
+  --badge-dot-font-size:11.5px;
+  --badge-dot-font-weight:var(--fw-bold);
+  --badge-dot-red-color:var(--red);
+  --badge-dot-green-color:var(--green);
+  --badge-dot-amber-color:#c07a00;   /* intentionally distinct from --badge-amber-color, for on-light-bg dot text */
+  --badge-dot-blue-color:var(--blue);
+  --badge-dot-purple-color:var(--purple);
+  --badge-dot-grey-color:var(--slate);
+
+  /* ---------- 19. TABLE TOOLBAR & PAGINATION (customer list) ---------- */
+  --table-toolbar-padding:16px 20px;
+  --table-toolbar-gap:12px;
+  --table-toolbar-border:var(--border);
+  --checkbox-cell-width:34px;
+  --avatar-cell-gap:11px;
+
+  --bulk-bar-bg:var(--orange-soft);
+  --bulk-bar-border:#ffd9bd;
+  --bulk-bar-color:var(--orange-dark);
+  --bulk-bar-font-size:12.5px;
+
+  --pagination-padding:16px 20px;
+  --pagination-font-size:12px;
+  --pagination-color:var(--slate);
+  --page-btn-size:32px;
+  --page-btn-radius:9px;
+  --page-btn-border:var(--border);
+  --page-btn-active-bg:var(--orange);
+  --page-btn-active-color:var(--white);
+  --page-btn-disabled-opacity:.4;
+
+  /* ---------- 20. CUSTOMER FORM PAGE ---------- */
+  --form-section-padding:26px 28px;
+  --form-section-title-size:14.5px;
+  --form-section-hint-size:11.5px;
+  --form-section-hint-color:var(--slate);
+  --form-grid-gap:18px;
+
+  --avatar-upload-size:84px;
+  --avatar-upload-bg:var(--orange-soft);
+  --avatar-upload-color:var(--orange);
+  --avatar-upload-font-size:22px;
+  --avatar-upload-cam-size:28px;
+  --avatar-upload-cam-bg:var(--orange);
+  --avatar-upload-cam-border:3px solid var(--white);
+
+  --form-sticky-footer-padding:16px 28px;
+  --form-sticky-footer-border:var(--border);
+
+  /* ==========================================================
+     21. FORM CONTROL FIELD TYPES
+     Grouped to mirror the "Form controls" doc blocks in
+     components.html exactly. Where a value already exists in
+     an earlier section it is referenced via var(), not
+     redefined — a few field-specific values are new.
+     ========================================================== */
+
+  /* 21.1 Text input */
+  --field-text-height:var(--input-height);
+  --field-text-radius:var(--input-radius);
+  --field-text-border:var(--input-border);
+  --field-text-padding-x:var(--input-padding-x);
+  --field-text-gap:var(--input-gap);
+  --field-text-bg:var(--white);
+  --field-text-color:var(--input-text-color);
+  --field-text-font-size:var(--input-font-size);
+  --field-text-icon-color:var(--input-icon-color);
+  --field-text-icon-size:15px;                 /* leading icon, e.g. bi-person */
+  --field-text-action-color:#8b96a6;            /* trailing icon-button, e.g. password eye toggle */
+  --field-text-action-padding:6px;
+  --field-text-focus-border:var(--input-focus-border);
+  --field-text-focus-ring:var(--input-focus-ring);
+
+  /* 21.2 Validation states */
+  --field-error-border:var(--input-error-border);
+  --field-error-ring:var(--input-error-ring);
+  --field-success-border:var(--input-success-border);
+  /* --field-hint-color and --field-hint-size already exist (see section 17) — reused as-is */
+  --field-hint-margin-top:6px;
+  --field-error-text-color:var(--field-error-color);
+  --field-error-text-size:var(--field-error-size);
+  --field-error-text-weight:var(--fw-semibold);
+  --field-error-text-gap:5px;
+  --field-error-text-margin-top:6px;
+
+  /* 21.3 Textarea */
+  --field-textarea-min-height:88px;
+  --field-textarea-padding:12px 14px;
+  --field-textarea-font-size:var(--input-font-size);
+  --field-textarea-line-height:1.6;
+  --field-textarea-resize:vertical;
+  --field-textarea-align:flex-start;            /* shell aligns icon/label to top, not center */
+
+  /* 21.4 Date & number */
+  --field-date-text-color:var(--input-text-color);
+  --field-date-icon-tint:var(--orange);         /* applied via filter to the native calendar-picker icon */
+  --field-date-icon-opacity:.85;
+  --field-number-spin-display:none;             /* hides native step-arrow buttons (WebKit) */
+  --field-number-appearance:textfield;          /* Firefox equivalent */
+
+  /* 21.5 Select dropdown & options */
+  --field-select-height:var(--input-height);
+  --field-select-radius:var(--input-radius);
+  --field-select-border:var(--input-border);
+  --field-select-padding-left:var(--input-padding-x);
+  --field-select-padding-right:var(--select-padding-right);
+  --field-select-font-size:var(--input-font-size);
+  --field-select-color:var(--input-text-color);
+  --field-select-bg:var(--white);
+  --field-select-cursor:pointer;
+  --field-select-focus-border:var(--input-focus-border);
+  --field-select-focus-ring:var(--input-focus-ring);
+  --field-select-chevron-color:var(--select-chevron-color);
+  --field-select-chevron-size:var(--select-chevron-size);
+  --field-option-font-size:var(--input-font-size);   /* <option> inherits font from <select> */
+  --field-option-color:var(--input-text-color);
+  --field-option-bg:var(--white);
+
+  /* 21.6 Checkbox */
+  --field-checkbox-size:var(--checkbox-size);
+  --field-checkbox-accent:var(--checkbox-accent);
+  --field-checkbox-gap:var(--check-row-gap);
+  --field-checkbox-font-size:var(--check-row-font-size);
+  --field-checkbox-color:var(--ink);
+  --field-checkbox-cursor:pointer;
+
+  /* 21.7 Toggle & pills */
+  --field-toggle-width:var(--toggle-width);
+  --field-toggle-height:var(--toggle-height);
+  --field-toggle-radius:var(--toggle-radius);
+  --field-toggle-track-bg:var(--toggle-track-bg);
+  --field-toggle-thumb-size:var(--toggle-thumb-size);
+  --field-toggle-thumb-bg:var(--toggle-thumb-bg);
+  --field-toggle-thumb-shadow:var(--toggle-thumb-shadow);
+  --field-toggle-checked-bg:var(--toggle-checked-bg);
+  --field-toggle-label-size:var(--toggle-label-size);
+  --field-toggle-label-weight:var(--toggle-label-weight);
+
+  --field-pill-padding:var(--pill-padding);
+  --field-pill-radius:var(--pill-radius);
+  --field-pill-border:var(--pill-border);
+  --field-pill-font-size:var(--pill-font-size);
+  --field-pill-color:var(--pill-color);
+  --field-pill-checked-border:var(--pill-checked-border);
+  --field-pill-checked-color:var(--pill-checked-color);
+  --field-pill-checked-bg:var(--pill-checked-bg);
 }
