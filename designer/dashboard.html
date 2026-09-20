@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard · Hobby Creatures CRM</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<link rel="stylesheet" href="../assets/design-tokens.css">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+
+<body>
+<div class="designer-app-shell">
+
+  <!-- SIDEBAR -->
+  <div data-include="sidebar.html"></div>
+
+  <div class="designer-main">
+
+    <!-- TOPBAR -->
+    <div data-include="topbar.html"></div>
+
+    <!-- WORKSPACE -->
+    <main class="designer-workspace">
+
+      <div class="designer-greeting">
+        <div class="designer-page-eyebrow">Wednesday, 02 September</div>
+        <h1>Good morning, Designer!</h1>
+        <p>Here are your design tasks for today.</p>
+      </div>
+
+      <!-- STATS -->
+      <section class="designer-stats-grid">
+
+        <div class="designer-stat-card">
+          <div class="designer-stat-icon orange"><i class="bi bi-file-earmark-ruled"></i></div>
+          <div class="designer-stat-body">
+            <span class="designer-stat-label">My Tasks</span>
+            <div class="designer-stat-value">5</div>
+            <div class="designer-stat-meta">Assigned to you</div>
+          </div>
+        </div>
+
+        <div class="designer-stat-card">
+          <div class="designer-stat-icon blue"><i class="bi bi-clock"></i></div>
+          <div class="designer-stat-body">
+            <span class="designer-stat-label">In Progress</span>
+            <div class="designer-stat-value">2</div>
+            <div class="designer-stat-meta">Currently working</div>
+          </div>
+        </div>
+
+        <div class="designer-stat-card">
+          <div class="designer-stat-icon green"><i class="bi bi-check-circle-fill"></i></div>
+          <div class="designer-stat-body">
+            <span class="designer-stat-label">Completed</span>
+            <div class="designer-stat-value">3</div>
+            <div class="designer-stat-meta">This week</div>
+          </div>
+        </div>
+
+        <div class="designer-stat-card">
+          <div class="designer-stat-icon red"><i class="bi bi-clock-history"></i></div>
+          <div class="designer-stat-body">
+            <span class="designer-stat-label">Pending</span>
+            <div class="designer-stat-value">1</div>
+            <div class="designer-stat-meta">Yet to start</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- MY DESIGN JOBS -->
+      <section class="designer-dashboard-grid">
+
+        <!-- LEFT -->
+        <div class="designer-card designer-jobs-card">
+
+          <div class="designer-card-heading">
+            <div class="designer-jobs-heading-left">
+              <div class="designer-jobs-heading-icon"><i class="bi bi-card-list"></i></div>
+              <h2 class="designer-card-heading-title">My Design Jobs</h2>
+            </div>
+            <a href="design-jobs.html" class="designer-card-heading-action">
+              View all jobs <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+
+          <!-- responsive list / table -->
+          <div class="designer-table-scroll">
+            <table class="designer-data-table designer-jobs-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer / Item</th>
+                  <th>Type</th>
+                  <th>Deadline</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="designer-order-id">ORD-2026-0147</td>
+                  <td><strong>Kaviya Events</strong><small>Custom name boards</small></td>
+                  <td>3D Model Design</td>
+                  <td>02 Sep 2026</td>
+                  <td><span class="designer-status-pill orange">In Progress</span></td>
+                  <td>
+                    <div class="designer-action-cell">
+                      <button class="designer-btn-view">View</button>
+                      <button class="designer-btn-kebab" aria-label="More actions"><i class="bi bi-three-dots-vertical"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="designer-order-id">ORD-2026-0145</td>
+                  <td><strong>Tiny Tales</strong><small>Character figurines</small></td>
+                  <td>Model Editing</td>
+                  <td>03 Sep 2026</td>
+                  <td><span class="designer-status-pill amber">Pending</span></td>
+                  <td>
+                    <div class="designer-action-cell">
+                      <button class="designer-btn-view">View</button>
+                      <button class="designer-btn-kebab" aria-label="More actions"><i class="bi bi-three-dots-vertical"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="designer-order-id">ORD-2026-0143</td>
+                  <td><strong>Arun Studios</strong><small>Architectural model</small></td>
+                  <td>Final Render</td>
+                  <td>03 Sep 2026</td>
+                  <td><span class="designer-status-pill blue">File Ready</span></td>
+                  <td>
+                    <div class="designer-action-cell">
+                      <button class="designer-btn-view">View</button>
+                      <button class="designer-btn-kebab" aria-label="More actions"><i class="bi bi-three-dots-vertical"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="designer-order-id">ORD-2026-0141</td>
+                  <td><strong>Pixel Craft</strong><small>Prototype enclosure</small></td>
+                  <td>Design Revision</td>
+                  <td>04 Sep 2026</td>
+                  <td><span class="designer-status-pill grey">Not Started</span></td>
+                  <td>
+                    <div class="designer-action-cell">
+                      <button class="designer-btn-view">View</button>
+                      <button class="designer-btn-kebab" aria-label="More actions"><i class="bi bi-three-dots-vertical"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="designer-order-id">ORD-2026-0138</td>
+                  <td><strong>Green Makers</strong><small>Planter model</small></td>
+                  <td>Concept Design</td>
+                  <td>05 Sep 2026</td>
+                  <td><span class="designer-status-pill green">Completed</span></td>
+                  <td>
+                    <div class="designer-action-cell">
+                      <button class="designer-btn-view">View</button>
+                      <button class="designer-btn-kebab" aria-label="More actions"><i class="bi bi-three-dots-vertical"></i></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+</div>
+
+<script>
+/* ---- tiny HTML include: swaps each [data-include] for the file's markup ----
+   Needs to run over http:// — file:// is blocked by CORS.
+   On PHP/Laravel, delete this and use include / @include instead.        */
+(async function () {
+  const slots = document.querySelectorAll('[data-include]');
+
+  await Promise.all([...slots].map(async slot => {
+    try {
+      const res = await fetch(slot.dataset.include);
+      slot.outerHTML = await res.text();
+    } catch (e) {
+      console.error('Include failed:', slot.dataset.include, e);
+    }
+  }));
+
+  initShell();
+})();
+
+function initShell() {
+  const sidebar = document.getElementById('designerSidebar');
+  const overlay = document.getElementById('designerSidebarOverlay');
+  const toggle  = document.getElementById('designerMenuToggle');
+  if (!sidebar || !overlay || !toggle) return;
+
+  const open  = () => { sidebar.classList.add('open');    overlay.classList.add('active'); };
+  const close = () => { sidebar.classList.remove('open'); overlay.classList.remove('active'); };
+
+  toggle.addEventListener('click', open);
+  overlay.addEventListener('click', close);
+
+  // close on nav tap and on Escape
+  sidebar.querySelectorAll('.designer-nav-item').forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // reset when returning to desktop width
+  window.addEventListener('resize', () => { if (window.innerWidth > 820) close(); });
+}
+</script>
+</body>
+</html>
